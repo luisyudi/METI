@@ -43,7 +43,7 @@ def generate_images(model, digit, n=5):
         noise = torch.randn_like(mean_latent) * 0.1
         sample_latent = mean_latent + noise
         img = model.decode(sample_latent).cpu()
-        imgs_generated.append(img.squeeze().numpy())
+        imgs_generated.append(img.squeeze().detach().numpy())
     return imgs_generated
 
 # Interface Streamlit
