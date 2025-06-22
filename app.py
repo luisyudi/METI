@@ -47,11 +47,11 @@ def generate_images(model, digit, n=5):
     return imgs_generated
 
 # Interface Streamlit
-st.title("Gerador de Dígitos Manuscritos")
+st.title("Handwritten Digit Image Generator")
 
-digit = st.number_input("Digite um número entre 0 e 9:", min_value=0, max_value=9, step=1)
-if st.button("Gerar 5 imagens"):
-    with st.spinner("Carregando modelo e gerando imagens..."):
+digit = st.number_input("Choose a digit to generate [0-9]:", min_value=0, max_value=9, step=1)
+if st.button("Generate Images"):
+    with st.spinner("Loading model and generating images..."):
         model = load_model()
         images = generate_images(model, digit, n=5)
 
